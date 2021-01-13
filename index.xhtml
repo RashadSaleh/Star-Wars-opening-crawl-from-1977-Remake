@@ -24,6 +24,10 @@ header {
     display: none;
 }
 
+.play {
+    font-size: 300%;
+}
+
 .starwars section {
   position: absolute;
   top: 45%;
@@ -153,6 +157,7 @@ header {
         <h1>star wars</h1>
       </header>
   <audio preload="auto">
+      <source src="https://www.shlomifish.org/Files/files/music/mp3-ogg/starwars-theme.mp3" type="audio/mp3" />
       <source src="https://www.shlomifish.org/Files/files/music/mp3-ogg/starwars-theme.ogg" type="audio/ogg" />
   </audio>
   <!--
@@ -162,9 +167,9 @@ header {
       <header>
         <h2>star wars</h2>
       </header>
-    <p>
-    foo
-    </p>
+      <button class="play" type="button">
+          Play
+      </button>
   </section>
 
   <div class="animation">

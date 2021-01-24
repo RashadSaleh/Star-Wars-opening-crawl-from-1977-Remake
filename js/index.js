@@ -69,6 +69,7 @@ StarWars = (function() {
    * Resets the animation and shows the start screen.
    */
   StarWars.prototype.reset = function() {
+    $("body > h1").removeClass("hide");
     this.start.show();
     this.cloned = this.animation.clone(true);
     this.animation.remove();

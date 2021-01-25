@@ -1,86 +1,111 @@
 @import "compass/css3";
 
-@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400, 700);
 
 html,
 body {
   width: 100%;
   height: 100%;
   font: 700 1em "News Cycle", sans-serif;
-  letter-spacing:.15em;
-	color: #ff6;
-	background: #000;
-	overflow: hidden;
+  letter-spacing: 0.15em;
+  color: #ff6;
+  background: #000;
+  overflow: hidden;
   margin: 0;
 }
 
+body > h1 {
+  font-size: 400%;
+  text-align: center;
+}
+
+h1.hide {
+  visibility: hidden;
+}
+
+article,
+section {
+  > header {
+    display: none;
+  }
+}
+
 .starwars {
-  
   section {
     position: absolute;
     top: 45%;
     left: 50%;
     z-index: 1;
-  } 
+  }
 
   .start {
+    button {
+      font-size: 300%;
+    }
+
+    a {
+      font-size: 150%;
+      .arrow {
+        color: green;
+      }
+    }
     font-size: 200%;
     $start-width: 14em;
-    width: $start-width;
-    margin: -4em 0 0 (- $start-width / 2);
+    // width: $start-width;
+    margin: -4em 0 0 (-$start-width / 2);
     text-align: center;
     cursor: pointer;
-    
+
     span {
-      color: rgb(75, 213, 238); 
+      color: rgb(75, 213, 238);
     }
-  }    
-  
+  }
+
   .intro {
     $intro-width: 15em;
-  	width: $intro-width;
-    margin: 0 0 0 (- $intro-width / 2);
-	  font-size: 200%;
-	  font-weight: 400;
-  	color: rgb(75, 213, 238);
+    width: $intro-width;
+    margin: 0 0 0 (-$intro-width / 2);
+    font-size: 200%;
+    font-weight: 400;
+    color: rgb(75, 213, 238);
     opacity: 0;
-	  animation: intro 6s ease-out 1s;
+    animation: intro 6s ease-out 1s;
   }
-  
+
   .logo {
     $logo-width: 18em;
-  	width: $logo-width;
-    margin: (- $logo-width / 2) 0 0 (- $logo-width / 2);
+    width: $logo-width;
+    margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
     opacity: 0;
-	  animation: logo 9s ease-out 9s;
-    
+    animation: logo 9s ease-out 9s;
+
     svg {
       width: inherit;
     }
   }
-  
+
   .titles {
     $titles-width: 14.65em;
     width: $titles-width;
-    margin: 0 0 0 (- $titles-width / 2);
+    margin: 0 0 0 (-$titles-width / 2);
     top: auto;
     bottom: 0;
-  	height: 50em;
-  	font-size: 350%;
-  	text-align: justify;
-	  overflow: hidden;
+    height: 50em;
+    font-size: 350%;
+    text-align: justify;
+    overflow: hidden;
     transform-origin: 50% 100%;
     @include transform(perspective(300px) rotateX(25deg));
-  
+
     > div {
-	    position: absolute;
-	    top: 100%;
-	    animation: titles 81s linear 13s;
-    
+      position: absolute;
+      top: 100%;
+      animation: titles 81s linear 13s;
+
       > p {
-	      margin: 1.35em 0 1.85em 0;
+        margin: 1.35em 0 1.85em 0;
         line-height: 1.35em;
-        
+
         @include backface-visibility(hidden);
       }
     }
@@ -90,42 +115,42 @@ body {
 @keyframes intro {
   0% {
     opacity: 0;
-  }  
-	20% { 
-    opacity: 1; 
   }
-	90% { 
-    opacity: 1; 
+  20% {
+    opacity: 1;
   }
-	100% { 
+  90% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
 }
 
 @keyframes logo {
-	0% { 
-    @include transform(scale(2.75)); 
-    opacity: 1; 
+  0% {
+    @include transform(scale(2.75));
+    opacity: 1;
   }
-	50% { 
-    opacity: 1; 
+  50% {
+    opacity: 1;
   }
-	100% { 
-    @include transform(scale(.1)); 
-    opacity: 0; 
+  100% {
+    @include transform(scale(0.1));
+    opacity: 0;
   }
 }
 
 @keyframes titles {
-	0% { 
-    top: 100%; 
+  0% {
+    top: 100%;
     opacity: 1;
   }
   95% {
     opacity: 1;
   }
-	100% { 
-    top: 20%; 
+  100% {
+    top: 20%;
     opacity: 0;
   }
 }

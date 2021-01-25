@@ -51,7 +51,7 @@ StarWars = (function() {
     this.reset();
 
     // Start the animation on click
-    this.start.bind('click', $.proxy(function() {
+    $(".play").bind('click', $.proxy(function() {
       $("body > h1").toggleClass("hide");
       this.start.hide();
       this.audio.play();

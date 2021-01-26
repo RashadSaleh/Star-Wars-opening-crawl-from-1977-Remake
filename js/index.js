@@ -35,45 +35,51 @@ StarWars = (function() {
    * Constructor
    */
   function StarWars(args) {
+    const obj = this;
+
     // Context wrapper
-    this.el = $(args.el);
+    obj.el = $(args.el);
 
     // Audio to play the opening crawl
-    this.audio = this.el.find('audio').get(0);
+    obj.audio = obj.el.find('audio').get(0);
 
     // Start the animation
-    this.start = this.el.find('.start');
+    obj.start = obj.el.find('.start');
 
     // The animation wrapper
-    this.animation = this.el.find('.animation');
+    obj.animation = obj.el.find('.animation');
 
     // Remove animation and shows the start screen
-    this.reset();
+    obj.reset();
 
     // Start the animation on click
     $(".play").bind('click', $.proxy(function() {
+      const that = this;
       $("body > h1").toggleClass("hide");
-      this.start.hide();
-      this.audio.play();
-      this.el.append(this.animation);
-    }, this));
+      that.start.hide();
+      that.audio.play();
+      that.animation.removeClass("hidden");
+      that.el.append(that.animation);
+    }, obj));
 
     // Reset the animation and shows the start screen
-    $(this.audio).bind('ended', $.proxy(function() {
-      this.audio.currentTime = 0;
-      this.reset();
-    }, this));
+    $(obj.audio).bind('ended', $.proxy(function() {
+      const that = this;
+      that.audio.currentTime = 0;
+      that.reset();
+    }, obj));
   }
 
   /*
    * Resets the animation and shows the start screen.
    */
   StarWars.prototype.reset = function() {
+      const that = this;
     $("body > h1").removeClass("hide");
-    this.start.show();
-    this.cloned = this.animation.clone(true);
-    this.animation.remove();
-    this.animation = this.cloned;
+    that.start.show();
+    that.cloned = that.animation.clone(true);
+    that.animation.remove();
+    that.animation = that.cloned;
   };
 
   return StarWars;

@@ -37,7 +37,7 @@ article > header, section > header {
     color: green;
 }
 
-.start a:visited, .start a:visited .arrow {
+.start a:visited {
     color: #888;
 }
 

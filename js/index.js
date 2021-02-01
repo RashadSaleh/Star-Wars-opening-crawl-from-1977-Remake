@@ -61,20 +61,18 @@ StarWars = (function() {
     }));
     // Start the animation on click
     $(".play").bind('click', $.proxy(function() {
-      const that = this;
       $("body > h1").toggleClass("hide");
-      that.start.hide();
-      that.audio.play();
-      that.animation.removeClass("hidden");
-      that.el.append(that.animation);
+      obj.start.hide();
+      obj.audio.play();
+      obj.animation.removeClass("hidden");
+      obj.el.append(obj.animation);
       return;
     }, obj));
 
     // Reset the animation and shows the start screen
     $(obj.audio).bind('ended', $.proxy(function() {
-      const that = this;
-      that.audio.currentTime = 0;
-      that.reset();
+      obj.audio.currentTime = 0;
+      obj.reset();
       return;
     }, obj));
   }

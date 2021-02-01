@@ -36,10 +36,6 @@ article.starwars.on > header, .starwars.on section > header {
     color: green;
 }
 
-.start a .arrow {
-    color: green;
-}
-
 .start a:visited {
     color: #888;
 }
@@ -166,3 +162,8 @@ article.starwars.on > header, .starwars.on section > header {
 .starwars.on .animation.hidden {
   display: none;
 }
+
+.start a .arrow {
+    color: #a00;
+}
+

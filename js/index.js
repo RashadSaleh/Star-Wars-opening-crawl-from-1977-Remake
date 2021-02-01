@@ -51,28 +51,28 @@ StarWars = (function() {
 
     // Remove animation and shows the start screen
     obj.reset();
-    $(".accessibility").bind('click', $.proxy(function() {
+    $(".accessibility").bind('click', function() {
         $("article.starwars.on , body.on").removeClass("on");
         obj.animation.removeClass(["animation", "hidden"]);
         obj.el.append(obj.animation);
         return;
-    }));
+    });
     // Start the animation on click
-    $(".play").bind('click', $.proxy(function() {
+    $(".play").bind('click', function() {
       $("body > h1").toggleClass("hide");
       obj.start.hide();
       obj.audio.play();
       obj.animation.removeClass("hidden");
       obj.el.append(obj.animation);
       return;
-    }, obj));
+    });
 
     // Reset the animation and shows the start screen
-    $(obj.audio).bind('ended', $.proxy(function() {
+    $(obj.audio).bind('ended', function() {
       obj.audio.currentTime = 0;
       obj.reset();
       return;
-    }, obj));
+    });
   }
 
   /*
@@ -82,9 +82,9 @@ StarWars = (function() {
     const that = this;
     $("body > h1").removeClass("hide");
     that.start.show();
-    that.cloned = that.animation.clone(true);
+    const cloned = that.animation.clone(true);
     that.animation.remove();
-    that.animation = that.cloned;
+    that.animation = cloned;
   };
 
   return StarWars;

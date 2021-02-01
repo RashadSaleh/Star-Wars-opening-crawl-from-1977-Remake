@@ -53,6 +53,10 @@ StarWars = (function() {
     obj.reset();
     $(".accessibility").bind('click', $.proxy(function() {
         $("article.starwars.on").removeClass("on");
+        $("body.on").removeClass("on");
+        obj.el.append(obj.animation);
+        $("*").removeClass("hidden");
+        $("*").removeClass("animation");
         return;
     }));
     // Start the animation on click

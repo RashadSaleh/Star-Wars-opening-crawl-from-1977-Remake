@@ -20,7 +20,7 @@ h1.hide {
     visibility: hidden;
 }
 
-article > header, section > header {
+article.starwars.on > header, .starwars.on section > header {
     display: none;
 }
 
@@ -41,13 +41,13 @@ article > header, section > header {
     color: #888;
 }
 
-.starwars section {
+.starwars.on section {
   position: absolute;
   top: 45%;
   left: 50%;
   z-index: 1;
 }
-.starwars .start {
+.starwars.on .start {
   font-size: 200%;
   /*width: 14em;*/
   margin: -4em 0 0 -7em;
@@ -56,11 +56,11 @@ article > header, section > header {
 }
 /*
    Better use a class for the span.
-.starwars .start span {
+.starwars.on .start span {
   color: #4bd5ee;
 }
 */
-.starwars .intro {
+.starwars.on .intro {
   width: 15em;
   margin: 0 0 0 -7.5em;
   font-size: 200%;
@@ -69,16 +69,16 @@ article > header, section > header {
   opacity: 0;
   animation: intro 6s ease-out 1s;
 }
-.starwars .logo {
+.starwars.on .logo {
   width: 18em;
   margin: -9em 0 0 -9em;
   opacity: 0;
   animation: logo 9s ease-out 9s;
 }
-.starwars .logo svg {
+.starwars.on .logo svg {
   width: inherit;
 }
-.starwars .titles {
+.starwars.on .titles {
   width: 14.65em;
   margin: 0 0 0 -7.325em;
   top: auto;
@@ -93,12 +93,12 @@ article > header, section > header {
   -webkit-transform: perspective(300px) rotateX(25deg);
   transform: perspective(300px) rotateX(25deg);
 }
-.starwars .titles > div {
+.starwars.on .titles > div {
   position: absolute;
   top: 100%;
   animation: titles 81s linear 13s;
 }
-.starwars .titles > div > p {
+.starwars.on .titles > div > p {
   margin: 1.35em 0 1.85em 0;
   line-height: 1.35em;
   -moz-backface-visibility: hidden;
@@ -160,6 +160,6 @@ article > header, section > header {
   }
 }
 
-.animation.hidden {
+.starwars.on .animation.hidden {
   display: none;
 }

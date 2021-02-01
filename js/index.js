@@ -51,7 +51,10 @@ StarWars = (function() {
 
     // Remove animation and shows the start screen
     obj.reset();
-
+    $(".accessibility").bind('click', $.proxy(function() {
+        $("article.starwars.on").removeClass("on");
+        return;
+    }));
     // Start the animation on click
     $(".play").bind('click', $.proxy(function() {
       const that = this;
@@ -60,6 +63,7 @@ StarWars = (function() {
       that.audio.play();
       that.animation.removeClass("hidden");
       that.el.append(that.animation);
+      return;
     }, obj));
 
     // Reset the animation and shows the start screen
@@ -67,6 +71,7 @@ StarWars = (function() {
       const that = this;
       that.audio.currentTime = 0;
       that.reset();
+      return;
     }, obj));
   }
 

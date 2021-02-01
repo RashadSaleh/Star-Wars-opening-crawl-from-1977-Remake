@@ -57,22 +57,32 @@ StarWars = (function() {
         obj.el.append(obj.animation);
         return;
     });
+    obj.stopped = false;
+    obj.timeout_id = null;
+    function _stop_audio () {
+      if (obj.stopped) {return;};
+      obj.stopped = true;
+      clearTimeout(obj.timeout_id);
+      obj.timeout_id = null;
+      obj.audio.pause();
+      obj.audio.currentTime = 0;
+      obj.reset();
+      return;
+    }
     // Start the animation on click
     $(".play").bind('click', function() {
+      obj.stopped = false;
       $("body > h1").toggleClass("hide");
       obj.start.hide();
       obj.audio.play();
       obj.animation.removeClass("hidden");
       obj.el.append(obj.animation);
+      obj.timeout_id = setTimeout(_stop_audio, 77 * 1000);
       return;
     });
 
     // Reset the animation and shows the start screen
-    $(obj.audio).bind('ended', function() {
-      obj.audio.currentTime = 0;
-      obj.reset();
-      return;
-    });
+    $(obj.audio).bind('ended', _stop_audio);
   }
 
   /*

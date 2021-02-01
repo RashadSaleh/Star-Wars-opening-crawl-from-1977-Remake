@@ -99,7 +99,7 @@ article.starwars.on > header, .starwars.on section > header {
 .starwars.on .titles > div {
   position: absolute;
   top: 100%;
-  animation: titles 81s linear 13s;
+  animation: titles 60s linear 13s;
 }
 .starwars.on .titles > div > p {
   margin: 1.35em 0 1.85em 0;

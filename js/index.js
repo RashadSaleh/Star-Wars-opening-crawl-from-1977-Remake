@@ -62,8 +62,10 @@ StarWars = (function() {
     function _stop_audio () {
       if (obj.stopped) {return;};
       obj.stopped = true;
-      clearTimeout(obj.timeout_id);
-      obj.timeout_id = null;
+      if (obj.timeout_id) {
+        clearTimeout(obj.timeout_id);
+        obj.timeout_id = null;
+      }
       obj.audio.pause();
       obj.audio.currentTime = 0;
       obj.reset();
@@ -77,7 +79,9 @@ StarWars = (function() {
       obj.audio.play();
       obj.animation.removeClass("hidden");
       obj.el.append(obj.animation);
-      obj.timeout_id = setTimeout(_stop_audio, 77 * 1000);
+      if (false) {
+        obj.timeout_id = setTimeout(_stop_audio, 77 * 1000);
+      };
       return;
     });
 

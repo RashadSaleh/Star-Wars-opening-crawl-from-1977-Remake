@@ -33,6 +33,15 @@ article.starwars.on,
   }
 }
 
+.start {
+  a {
+    color: green;
+    &:visited {
+        color: #888;
+    }
+  }
+}
+
 .starwars.on {
   section {
     position: absolute;

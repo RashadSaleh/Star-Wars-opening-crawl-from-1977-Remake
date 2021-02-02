@@ -1,6 +1,6 @@
-@import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
 
-@import url(https://fonts.googleapis.com/css?family=News+Cycle:400, 700);
+@import "compass/css3";
 
 html,
 body {
@@ -10,8 +10,10 @@ body {
   letter-spacing: 0.15em;
   color: #ff6;
   background: #000;
-  overflow: hidden;
   margin: 0;
+  &.on {
+    overflow: hidden;
+  }
 }
 
 body > h1 {
@@ -23,14 +25,14 @@ h1.hide {
   visibility: hidden;
 }
 
-article,
-section {
+article.starwars.on,
+.starwars.on section {
   > header {
     display: none;
   }
 }
 
-.starwars {
+.starwars.on {
   section {
     position: absolute;
     top: 45%;
@@ -46,7 +48,7 @@ section {
     a {
       font-size: 150%;
       .arrow {
-        color: green;
+        color: #a00;
       }
     }
     font-size: 200%;
@@ -112,6 +114,9 @@ section {
       }
     }
   }
+  .animation.hidden {
+    display: none;
+  }
 }
 
 @keyframes intro {
@@ -156,3 +161,9 @@ section {
     opacity: 0;
   }
 }
+@mixin links_visible_focus {
+    a:focus , button:focus {
+        outline: red solid 2px;
+    }
+}
+@include links_visible_focus;

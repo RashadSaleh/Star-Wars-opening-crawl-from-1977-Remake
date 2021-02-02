@@ -167,3 +167,11 @@ article.starwars.on > header, .starwars.on section > header {
     color: #a00;
 }
 
+a:focus , button:focus {
+    outline: red solid 2px;
+}
+/*
+a, button {
+    margin: 0.3em;
+}
+*/

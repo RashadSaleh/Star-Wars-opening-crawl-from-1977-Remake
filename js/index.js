@@ -59,8 +59,10 @@ StarWars = (function() {
     });
     obj.stopped = false;
     obj.timeout_id = null;
-    function _stop_audio () {
-      if (obj.stopped) {return;};
+    const _stop_audio = function () {
+      if (obj.stopped) {
+        return;
+      };
       obj.stopped = true;
       if (obj.timeout_id) {
         clearTimeout(obj.timeout_id);

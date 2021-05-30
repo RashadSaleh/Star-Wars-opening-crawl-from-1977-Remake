@@ -73,13 +73,13 @@ StarWars = (function() {
       obj.reset();
       return;
     }
-    const _esc = function (my_event) {
+    const _handle_keyboard_presses = function (my_event) {
       if (my_event.key == "Escape") {
         _stop_audio();
       }
       return;
     };
-    $(document).on('keyup', _esc);
+    $(document).on('keyup', _handle_keyboard_presses);
     // Start the animation on click
     $(".play").bind('click', function() {
       obj.stopped = false;

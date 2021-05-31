@@ -51,12 +51,7 @@ class StarWars {
 
     // Remove animation and shows the start screen
     obj.reset();
-    $(".accessibility").bind('click', function() {
-        $("article.starwars.on , body.on").removeClass("on").addClass("accessibile_body");
-        obj.animation.removeClass(["animation", "hidden"]);
-        obj.el.append(obj.animation);
-        return;
-    });
+    $(".accessibility").bind('click', ()=>{return obj._on_accessible_click();},);
     obj.stopped = false;
     obj.timeout_id = null;
     const _handle_keyboard_presses = function (my_event) {
@@ -71,6 +66,14 @@ class StarWars {
 
     // Reset the animation and shows the start screen
     $(obj.audio).bind('ended', ()=>{return obj._stop_audio();},);
+  }
+
+  _on_accessible_click() {
+    const obj = this;
+    $("article.starwars.on , body.on").removeClass("on").addClass("accessibile_body");
+    obj.animation.removeClass(["animation", "hidden"]);
+    obj.el.append(obj.animation);
+    return;
   }
 
   _on_play_click() {

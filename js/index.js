@@ -75,10 +75,10 @@ class StarWars {
 
   _on_accessible_click() {
     const obj = this;
-    $("article.starwars.on , body.on")
-      .removeClass("on")
-      .addClass("accessibile_body");
-    obj.animation.removeClass(["animation", "hidden"]);
+    $("article.starwars , body")
+      .toggleClass("on")
+      .toggleClass("accessibile_body");
+    obj.animation.toggleClass(["animation", "hidden"]);
     obj.el.append(obj.animation);
     return;
   }

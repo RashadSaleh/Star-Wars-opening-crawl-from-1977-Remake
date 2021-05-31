@@ -67,21 +67,24 @@ class StarWars {
     };
     $(document).on('keyup', _handle_keyboard_presses);
     // Start the animation on click
-    $(".play").bind('click', function() {
-      obj.stopped = false;
-      $("body > h1").toggleClass("hide");
-      obj.start.hide();
-      obj.audio.play();
-      obj.animation.removeClass("hidden");
-      obj.el.append(obj.animation);
-      if (false) {
-        obj.timeout_id = setTimeout(()=>{return obj._stop_audio();}, 77 * 1000);
-      };
-      return;
-    });
+    $(".play").bind('click', ()=>{return obj._on_play_click();},);
 
     // Reset the animation and shows the start screen
     $(obj.audio).bind('ended', ()=>{return obj._stop_audio();},);
+  }
+
+  _on_play_click() {
+    const obj = this;
+    obj.stopped = false;
+    $("body > h1").toggleClass("hide");
+    obj.start.hide();
+    obj.audio.play();
+    obj.animation.removeClass("hidden");
+    obj.el.append(obj.animation);
+    if (false) {
+      obj.timeout_id = setTimeout(()=>{return obj._stop_audio();}, 77 * 1000);
+    };
+    return;
   }
 
   /*

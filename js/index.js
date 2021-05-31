@@ -30,7 +30,6 @@
  *
  */
 class StarWars {
-
   /*
    * Constructor
    */
@@ -41,36 +40,44 @@ class StarWars {
     obj.el = $(args.el);
 
     // Audio to play the opening crawl
-    obj.audio = obj.el.find('audio').get(0);
+    obj.audio = obj.el.find("audio").get(0);
 
     // Start the animation
-    obj.start = obj.el.find('.start');
+    obj.start = obj.el.find(".start");
 
     // The animation wrapper
-    obj.animation = obj.el.find('.animation');
+    obj.animation = obj.el.find(".animation");
 
     // Remove animation and shows the start screen
     obj.reset();
-    $(".accessibility").bind('click', ()=>{return obj._on_accessible_click();},);
+    $(".accessibility").bind("click", () => {
+      return obj._on_accessible_click();
+    });
     obj.stopped = false;
     obj.timeout_id = null;
-    const _handle_keyboard_presses = function (my_event) {
+    const _handle_keyboard_presses = function (my_event) {
       if (my_event.key == "Escape") {
         obj._stop_audio();
       }
       return;
     };
-    $(document).on('keyup', _handle_keyboard_presses);
+    $(document).on("keyup", _handle_keyboard_presses);
     // Start the animation on click
-    $(".play").bind('click', ()=>{return obj._on_play_click();},);
+    $(".play").bind("click", () => {
+      return obj._on_play_click();
+    });
 
     // Reset the animation and shows the start screen
-    $(obj.audio).bind('ended', ()=>{return obj._stop_audio();},);
+    $(obj.audio).bind("ended", () => {
+      return obj._stop_audio();
+    });
   }
 
   _on_accessible_click() {
     const obj = this;
-    $("article.starwars.on , body.on").removeClass("on").addClass("accessibile_body");
+    $("article.starwars.on , body.on")
+      .removeClass("on")
+      .addClass("accessibile_body");
     obj.animation.removeClass(["animation", "hidden"]);
     obj.el.append(obj.animation);
     return;
@@ -85,8 +92,10 @@ class StarWars {
     obj.animation.removeClass("hidden");
     obj.el.append(obj.animation);
     if (false) {
-      obj.timeout_id = setTimeout(()=>{return obj._stop_audio();}, 77 * 1000);
-    };
+      obj.timeout_id = setTimeout(() => {
+        return obj._stop_audio();
+      }, 77 * 1000);
+    }
     return;
   }
 
@@ -105,7 +114,7 @@ class StarWars {
     const obj = this;
     if (obj.stopped) {
       return;
-    };
+    }
     obj.stopped = true;
     if (obj.timeout_id) {
       clearTimeout(obj.timeout_id);
@@ -116,8 +125,8 @@ class StarWars {
     obj.reset();
     return;
   }
-};
+}
 
 new StarWars({
-  el : '.starwars'
+  el: ".starwars",
 });

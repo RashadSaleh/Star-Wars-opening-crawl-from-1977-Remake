@@ -28,8 +28,8 @@ h1.hide {
 }
 
 /* line 30, ../scss/style.scss */
-article.starwars.on > header,
-.starwars.on section > header {
+article.starwars > header,
+.starwars section > header {
   display: none;
 }
 

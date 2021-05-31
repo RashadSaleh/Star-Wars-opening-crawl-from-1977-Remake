@@ -25,8 +25,8 @@ h1.hide {
   visibility: hidden;
 }
 
-article.starwars.on,
-.starwars.on section {
+article.starwars,
+.starwars section {
   > header {
     display: none;
   }

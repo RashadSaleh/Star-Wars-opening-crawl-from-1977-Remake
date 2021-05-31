@@ -36,19 +36,12 @@ article.starwars,
   a {
     color: green;
     &:visited {
-        color: #888;
+      color: #888;
     }
   }
 }
 
-.starwars.on {
-  section {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    z-index: 1;
-  }
-
+.starwars {
   .start {
     button {
       font-size: 300%;
@@ -81,16 +74,12 @@ article.starwars,
     font-size: 200%;
     font-weight: 400;
     color: rgb(75, 213, 238);
-    opacity: 0;
-    animation: intro 6s ease-out 1s;
   }
 
   .logo {
     $logo-width: 18em;
     width: $logo-width;
     margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
-    opacity: 0;
-    animation: logo 9s ease-out 9s;
 
     svg {
       width: inherit;
@@ -101,24 +90,50 @@ article.starwars,
     $titles-width: 14.65em;
     width: $titles-width;
     margin: 0 0 0 (-$titles-width / 2);
-    top: auto;
-    bottom: 0;
     height: 50em;
     font-size: 350%;
     text-align: justify;
     overflow: hidden;
-    transform-origin: 50% 100%;
-    @include transform(perspective(300px) rotateX(25deg));
 
     > div.story {
-      position: absolute;
-      top: 100%;
-      animation: titles 60s linear 13s;
-
       > p {
         margin: 1.35em 0 1.85em 0;
         line-height: 1.35em;
+      }
+    }
+  }
+}
 
+.starwars.on {
+  section {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    z-index: 1;
+  }
+  .intro {
+    animation: intro 6s ease-out 1s;
+  }
+  .logo {
+    animation: logo 9s ease-out 9s;
+  }
+  .intro {
+    opacity: 0;
+  }
+  .logo {
+    opacity: 0;
+  }
+
+  .titles {
+    top: auto;
+    bottom: 0;
+    transform-origin: 50% 100%;
+    @include transform(perspective(300px) rotateX(25deg));
+    > div.story {
+      animation: titles 60s linear 13s;
+      position: absolute;
+      top: 100%;
+      > p {
         @include backface-visibility(hidden);
       }
     }
@@ -172,8 +187,9 @@ article.starwars,
   }
 }
 @mixin links_visible_focus {
-    a:focus , button:focus {
-        outline: red solid 2px;
-    }
+  a:focus,
+  button:focus {
+    outline: red solid 2px;
+  }
 }
 @include links_visible_focus;

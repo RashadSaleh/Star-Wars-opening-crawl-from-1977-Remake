@@ -43,83 +43,102 @@ article.starwars > header,
 }
 
 /* line 45, ../scss/style.scss */
+.starwars .start {
+  font-size: 200%;
+  margin: -4em 0 0 -7em;
+  text-align: center;
+  cursor: pointer;
+}
+/* line 46, ../scss/style.scss */
+.starwars .start button {
+  font-size: 300%;
+}
+/* line 50, ../scss/style.scss */
+.starwars .start a {
+  font-size: 150%;
+}
+/* line 52, ../scss/style.scss */
+.starwars .start a .arrow {
+  color: #a00;
+}
+/* line 70, ../scss/style.scss */
+.starwars .intro {
+  width: 15em;
+  margin: 0 0 0 -7.5em;
+  font-size: 200%;
+  font-weight: 400;
+  color: #4bd5ee;
+}
+/* line 79, ../scss/style.scss */
+.starwars .logo {
+  width: 18em;
+  margin: -9em 0 0 -9em;
+}
+/* line 84, ../scss/style.scss */
+.starwars .logo svg {
+  width: inherit;
+}
+/* line 89, ../scss/style.scss */
+.starwars .titles {
+  width: 14.65em;
+  margin: 0 0 0 -7.325em;
+  height: 50em;
+  font-size: 350%;
+  text-align: justify;
+  overflow: hidden;
+}
+/* line 99, ../scss/style.scss */
+.starwars .titles > div.story > p {
+  margin: 1.35em 0 1.85em 0;
+  line-height: 1.35em;
+}
+
+/* line 108, ../scss/style.scss */
 .starwars.on section {
   position: absolute;
   top: 45%;
   left: 50%;
   z-index: 1;
 }
-/* line 52, ../scss/style.scss */
-.starwars.on .start {
-  font-size: 200%;
-  margin: -4em 0 0 -7em;
-  text-align: center;
-  cursor: pointer;
-}
-/* line 53, ../scss/style.scss */
-.starwars.on .start button {
-  font-size: 300%;
-}
-/* line 57, ../scss/style.scss */
-.starwars.on .start a {
-  font-size: 150%;
-}
-/* line 59, ../scss/style.scss */
-.starwars.on .start a .arrow {
-  color: #a00;
-}
-/* line 77, ../scss/style.scss */
+/* line 114, ../scss/style.scss */
 .starwars.on .intro {
-  width: 15em;
-  margin: 0 0 0 -7.5em;
-  font-size: 200%;
-  font-weight: 400;
-  color: #4bd5ee;
-  opacity: 0;
   animation: intro 6s ease-out 1s;
 }
-/* line 88, ../scss/style.scss */
+/* line 117, ../scss/style.scss */
 .starwars.on .logo {
-  width: 18em;
-  margin: -9em 0 0 -9em;
-  opacity: 0;
   animation: logo 9s ease-out 9s;
 }
-/* line 95, ../scss/style.scss */
-.starwars.on .logo svg {
-  width: inherit;
+/* line 120, ../scss/style.scss */
+.starwars.on .intro {
+  opacity: 0;
 }
-/* line 100, ../scss/style.scss */
+/* line 123, ../scss/style.scss */
+.starwars.on .logo {
+  opacity: 0;
+}
+/* line 127, ../scss/style.scss */
 .starwars.on .titles {
-  width: 14.65em;
-  margin: 0 0 0 -7.325em;
   top: auto;
   bottom: 0;
-  height: 50em;
-  font-size: 350%;
-  text-align: justify;
-  overflow: hidden;
   transform-origin: 50% 100%;
   -moz-transform: perspective(300px) rotateX(25deg);
   -ms-transform: perspective(300px) rotateX(25deg);
   -webkit-transform: perspective(300px) rotateX(25deg);
   transform: perspective(300px) rotateX(25deg);
 }
-/* line 113, ../scss/style.scss */
+/* line 132, ../scss/style.scss */
 .starwars.on .titles > div.story {
+  animation: titles 60s linear 13s;
   position: absolute;
   top: 100%;
-  animation: titles 60s linear 13s;
 }
-/* line 118, ../scss/style.scss */
+/* line 136, ../scss/style.scss */
 .starwars.on .titles > div.story > p {
-  margin: 1.35em 0 1.85em 0;
-  line-height: 1.35em;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 126, ../scss/style.scss */
+/* line 141, ../scss/style.scss */
 .starwars.on .animation.hidden {
   display: none;
 }
@@ -171,7 +190,8 @@ article.starwars > header,
     opacity: 0;
   }
 }
-/* line 175, ../scss/style.scss */
-a:focus, button:focus {
+/* line 190, ../scss/style.scss */
+a:focus,
+button:focus {
   outline: red solid 2px;
 }

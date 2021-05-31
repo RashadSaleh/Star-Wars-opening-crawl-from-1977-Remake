@@ -59,23 +59,9 @@ class StarWars {
     });
     obj.stopped = false;
     obj.timeout_id = null;
-    const _stop_audio = function () {
-      if (obj.stopped) {
-        return;
-      };
-      obj.stopped = true;
-      if (obj.timeout_id) {
-        clearTimeout(obj.timeout_id);
-        obj.timeout_id = null;
-      }
-      obj.audio.pause();
-      obj.audio.currentTime = 0;
-      obj.reset();
-      return;
-    }
     const _handle_keyboard_presses = function (my_event) {
       if (my_event.key == "Escape") {
-        _stop_audio();
+        obj._stop_audio();
       }
       return;
     };
@@ -89,13 +75,13 @@ class StarWars {
       obj.animation.removeClass("hidden");
       obj.el.append(obj.animation);
       if (false) {
-        obj.timeout_id = setTimeout(_stop_audio, 77 * 1000);
+        obj.timeout_id = setTimeout(()=>{return obj._stop_audio();}, 77 * 1000);
       };
       return;
     });
 
     // Reset the animation and shows the start screen
-    $(obj.audio).bind('ended', _stop_audio);
+    $(obj.audio).bind('ended', ()=>{return obj._stop_audio();},);
   }
 
   /*
@@ -108,6 +94,21 @@ class StarWars {
     const cloned = obj.animation.clone(true);
     obj.animation.remove();
     obj.animation = cloned;
+  }
+  _stop_audio() {
+    const obj = this;
+    if (obj.stopped) {
+      return;
+    };
+    obj.stopped = true;
+    if (obj.timeout_id) {
+      clearTimeout(obj.timeout_id);
+      obj.timeout_id = null;
+    }
+    obj.audio.pause();
+    obj.audio.currentTime = 0;
+    obj.reset();
+    return;
   }
 };
 

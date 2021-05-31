@@ -29,12 +29,12 @@
  * timpietrusky.com
  *
  */
-StarWars = (function() {
+class StarWars {
 
   /*
    * Constructor
    */
-  function StarWars(args) {
+  constructor(args) {
     const obj = this;
 
     // Context wrapper
@@ -101,17 +101,15 @@ StarWars = (function() {
   /*
    * Resets the animation and shows the start screen.
    */
-  StarWars.prototype.reset = function() {
+  reset() {
     const obj = this;
     $("body > h1").removeClass("hide");
     obj.start.show();
     const cloned = obj.animation.clone(true);
     obj.animation.remove();
     obj.animation = cloned;
-  };
-
-  return StarWars;
-})();
+  }
+};
 
 new StarWars({
   el : '.starwars'

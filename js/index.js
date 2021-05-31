@@ -46,7 +46,7 @@ class StarWars {
     obj.start = obj.el.find(".start");
 
     // The animation wrapper
-    obj.animation = obj.el.find(".animation");
+    obj.animation = obj.el.find(".main_animation");
 
     // Remove animation and shows the start screen
     obj.reset();
@@ -79,7 +79,7 @@ class StarWars {
       .toggleClass("on")
       .toggleClass("accessibile_body");
     obj.animation.toggleClass(["animation", "hidden"]);
-    if (false) {
+    if (!obj.el.find(".main_animation")) {
       obj.el.append(obj.animation);
     }
     return;

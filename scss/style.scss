@@ -68,31 +68,18 @@ article.starwars,
   }
 
   .intro {
-    $intro-width: 15em;
-    width: $intro-width;
-    margin: 0 0 0 (-$intro-width / 2);
     font-size: 200%;
     font-weight: 400;
     color: rgb(75, 213, 238);
   }
 
   .logo {
-    $logo-width: 18em;
-    width: $logo-width;
-    margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
-
     svg {
       width: inherit;
     }
   }
 
   .titles {
-    $titles-width: 14.65em;
-    width: $titles-width;
-    margin: 0 0 0 (-$titles-width / 2);
-    height: 50em;
-    font-size: 350%;
-    text-align: justify;
     overflow: hidden;
 
     > div.story {
@@ -112,21 +99,29 @@ article.starwars,
     z-index: 1;
   }
   .intro {
+    $intro-width: 15em;
+    width: $intro-width;
+    margin: 0 0 0 (-$intro-width / 2);
+    opacity: 0;
     animation: intro 6s ease-out 1s;
   }
   .logo {
+    $logo-width: 18em;
+    width: $logo-width;
+    margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
+    opacity: 0;
     animation: logo 9s ease-out 9s;
-  }
-  .intro {
-    opacity: 0;
-  }
-  .logo {
-    opacity: 0;
   }
 
   .titles {
     top: auto;
     bottom: 0;
+    height: 50em;
+    font-size: 350%;
+    text-align: justify;
+    $titles-width: 14.65em;
+    width: $titles-width;
+    margin: 0 0 0 (-$titles-width / 2);
     transform-origin: 50% 100%;
     @include transform(perspective(300px) rotateX(25deg));
     > div.story {

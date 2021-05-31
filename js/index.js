@@ -79,7 +79,9 @@ class StarWars {
       .toggleClass("on")
       .toggleClass("accessibile_body");
     obj.animation.toggleClass(["animation", "hidden"]);
-    obj.el.append(obj.animation);
+    if (false) {
+      obj.el.append(obj.animation);
+    }
     return;
   }
 

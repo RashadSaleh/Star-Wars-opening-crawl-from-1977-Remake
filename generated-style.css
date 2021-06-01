@@ -85,28 +85,28 @@ article.starwars > header,
 }
 
 /* line 98, ../scss/style.scss */
-.starwars.on section {
+.starwars.animation.on section {
   position: absolute;
   top: 45%;
   left: 50%;
   z-index: 1;
 }
 /* line 104, ../scss/style.scss */
-.starwars.on .intro {
+.starwars.animation.on .intro {
   width: 15em;
   margin: 0 0 0 -7.5em;
   opacity: 0;
   animation: intro 6s ease-out 1s;
 }
 /* line 111, ../scss/style.scss */
-.starwars.on .logo {
+.starwars.animation.on .logo {
   width: 18em;
   margin: -9em 0 0 -9em;
   opacity: 0;
   animation: logo 9s ease-out 9s;
 }
 /* line 119, ../scss/style.scss */
-.starwars.on .titles {
+.starwars.animation.on .titles {
   top: auto;
   bottom: 0;
   height: 50em;
@@ -121,19 +121,19 @@ article.starwars > header,
   transform: perspective(300px) rotateX(25deg);
 }
 /* line 130, ../scss/style.scss */
-.starwars.on .titles > div.story {
+.starwars.animation.on .titles > div.story {
   animation: titles 60s linear 13s;
   position: absolute;
   top: 100%;
 }
 /* line 134, ../scss/style.scss */
-.starwars.on .titles > div.story > p {
+.starwars.animation.on .titles > div.story > p {
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 /* line 139, ../scss/style.scss */
-.starwars.on .animation.hidden {
+.starwars.animation.on .animation.hidden {
   display: none;
 }
 

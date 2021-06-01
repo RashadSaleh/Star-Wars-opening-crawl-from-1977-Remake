@@ -46,7 +46,11 @@ class StarWars {
     obj.start = obj.el.find(".start");
 
     // The animation wrapper
-    obj.animation = obj.el.find(".main_animation");
+    obj.animation = obj.el.find(".main_animation").clone();
+
+    if (!obj.animation) {
+      alert("foo");
+    }
 
     // Remove animation and shows the start screen
     obj.reset();
@@ -75,10 +79,15 @@ class StarWars {
 
   _on_accessible_click() {
     const obj = this;
-    $("article.starwars , body")
-      .toggleClass("on")
-      .toggleClass("accessibile_body");
-    obj.animation.toggleClass(["animation", "hidden"]);
+    $("article.starwars").toggleClass("on").removeClass("animation");
+    $("body").toggleClass("accessibile_body");
+    // obj.animation.removeClass("animation");
+    // obj.animation.toggleClass("hidden");
+    obj._replace_animation_element();
+    return;
+  }
+  _replace_animation_element() {
+    const obj = this;
     const found = obj.el.find(".main_animation");
     if (found) {
       found.remove();
@@ -93,8 +102,10 @@ class StarWars {
     $("body > h1").toggleClass("hide");
     obj.start.hide();
     obj.audio.play();
+    $(".starwars").addClass(["animation", "on"]);
+    // obj.animation.addClass("animation");
     obj.animation.removeClass("hidden");
-    obj.el.append(obj.animation);
+    obj._replace_animation_element();
     if (false) {
       obj.timeout_id = setTimeout(() => {
         return obj._stop_audio();

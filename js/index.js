@@ -48,7 +48,7 @@ class StarWars {
 
     // The animation wrapper
     const old_animation = obj.el.find(".main_animation");
-    obj.animation = old_animation; //.clone();
+    obj.animation = old_animation.clone(true);
     // old_animation.remove();
 
     if (!obj.animation) {
@@ -83,18 +83,26 @@ class StarWars {
   _on_accessible_click() {
     const obj = this;
     $("article.starwars").toggleClass("on").removeClass("animation");
-    $("body").toggleClass("accessibile_body");
+    $("body").toggleClass(["accessibile_body", "animation_body"]);
     // obj.animation.removeClass("animation");
     // obj.animation.toggleClass("hidden");
-    obj._replace_animation_element();
+    if ($("body").hasClass("accessibile_body")) {
+      obj._replace_animation_element();
+    } else {
+      obj._remove_animation_element();
+    }
     return;
   }
-  _replace_animation_element() {
+  _remove_animation_element() {
     const obj = this;
     const found = obj.el.find(".main_animation");
     if (found) {
       found.remove();
     }
+  }
+  _replace_animation_element() {
+    const obj = this;
+    obj._remove_animation_element();
     obj.el.append(obj.animation);
     return;
   }
@@ -103,6 +111,9 @@ class StarWars {
     const obj = this;
     obj.stopped = false;
     $("body > h1").addClass("hide");
+    if ($("body").hasClass("accessibile_body")) {
+      alert("accessibile_body");
+    }
     obj.start.hide();
     obj.audio.play();
     $(".starwars").addClass(["animation", "on"]);
@@ -127,7 +138,7 @@ class StarWars {
     const cloned = obj.animation.clone(true);
     obj.animation.remove();
     obj.animation = cloned;
-    $("article.starwars").removeClass("animation");
+    $("article.starwars").removeClass("animation").removeClass("on");
   }
   _stop_audio() {
     const obj = this;

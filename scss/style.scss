@@ -44,7 +44,7 @@ article.starwars,
   }
 }
 
-.starwars {
+body.animation_body .starwars {
   section {
     position: absolute;
     top: 45%;
@@ -70,6 +70,9 @@ article.starwars,
     cursor: pointer;
 
     @if false {
+      $start-width: 14em;
+      // width: $start-width;
+      margin: -4em 0 0 (-$start-width / 2);
       span {
         color: rgb(75, 213, 238);
       }
@@ -103,6 +106,10 @@ article.starwars,
 .starwars.on {
   &.animation {
     .intro {
+      $intro-width: 15em;
+      width: $intro-width;
+      margin: 0 0 0 (-$intro-width / 2);
+      opacity: 0;
       animation: intro 6s ease-out 1s;
     }
     .logo {
@@ -110,9 +117,12 @@ article.starwars,
     }
     .titles {
       font-size: 350%;
+      transform-origin: 50% 100%;
+      @include transform(perspective(300px) rotateX(25deg));
       > div.story {
         position: absolute;
         top: 100%;
+        animation: titles 60s linear 13s;
         > p {
           @include backface-visibility(hidden);
         }
@@ -120,6 +130,12 @@ article.starwars,
     }
   }
 
+  section {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    z-index: 1;
+  }
   .intro {
     $intro-width: 15em;
     width: $intro-width;
@@ -141,10 +157,7 @@ article.starwars,
     $titles-width: 14.65em;
     width: $titles-width;
     margin: 0 0 0 (-$titles-width / 2);
-    transform-origin: 50% 100%;
-    @include transform(perspective(300px) rotateX(25deg));
     > div.story {
-      animation: titles 60s linear 13s;
     }
   }
   .animation.hidden {

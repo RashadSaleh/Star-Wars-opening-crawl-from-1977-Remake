@@ -35,6 +35,7 @@ class StarWars {
      */
     constructor(args) {
         const obj = this;
+        obj.title_selector = args.title_selector;
         // Context wrapper
         obj.elem = $(args.el);
         // Audio to play the opening crawl
@@ -103,7 +104,7 @@ class StarWars {
     _on_play_click() {
         const obj = this;
         obj.stopped = false;
-        $("body > h1").addClass("hide");
+        $(obj.title_selector).addClass("hide");
         const elem = obj.elem;
         if (elem.hasClass("accessible_body")) {
             alert("accessible_body");
@@ -126,7 +127,7 @@ class StarWars {
      */
     reset() {
         const obj = this;
-        $("body > h1").removeClass("hide");
+        $(obj.title_selector).removeClass("hide");
         obj.start.show();
         const cloned = obj.animation.clone(true);
         obj.animation.remove();
@@ -152,4 +153,5 @@ class StarWars {
 }
 new StarWars({
     el: ".starwars",
+    title_selector: "body > h1",
 });

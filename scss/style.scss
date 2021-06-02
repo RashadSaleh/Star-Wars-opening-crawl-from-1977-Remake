@@ -161,10 +161,11 @@ body.animation_body {
       > div.story {
       }
     }
-    .animation.hidden {
-      display: none;
-    }
   }
+}
+
+.animation.hidden {
+  display: none;
 }
 
 @keyframes intro {

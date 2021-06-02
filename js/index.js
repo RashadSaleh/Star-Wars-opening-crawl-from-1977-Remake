@@ -82,7 +82,11 @@ class StarWars {
 
   _on_accessible_click() {
     const obj = this;
-    $("article.starwars").toggleClass("on").removeClass("animation");
+    $("article.starwars").addClass("on").removeClass("animation");
+    $([obj.animation, $(".main_animation")]).removeClass([
+      "animation",
+      "hidden",
+    ]);
     $("body").toggleClass(["accessibile_body", "animation_body"]);
     // obj.animation.removeClass("animation");
     // obj.animation.toggleClass("hidden");

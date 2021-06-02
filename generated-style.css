@@ -91,26 +91,46 @@ article.starwars > header,
   line-height: 1.35em;
 }
 
-/* line 104, ../scss/style.scss */
-.starwars.animation.on .intro {
+/* line 105, ../scss/style.scss */
+.starwars.on.animation .intro {
+  animation: intro 6s ease-out 1s;
+}
+/* line 108, ../scss/style.scss */
+.starwars.on.animation .logo {
+  animation: logo 9s ease-out 9s;
+}
+/* line 111, ../scss/style.scss */
+.starwars.on.animation .titles {
+  font-size: 350%;
+}
+/* line 113, ../scss/style.scss */
+.starwars.on.animation .titles > div.story {
+  position: absolute;
+  top: 100%;
+}
+/* line 116, ../scss/style.scss */
+.starwars.on.animation .titles > div.story > p {
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 123, ../scss/style.scss */
+.starwars.on .intro {
   width: 15em;
   margin: 0 0 0 -7.5em;
   opacity: 0;
-  animation: intro 6s ease-out 1s;
 }
-/* line 111, ../scss/style.scss */
-.starwars.animation.on .logo {
+/* line 129, ../scss/style.scss */
+.starwars.on .logo {
   width: 18em;
   margin: -9em 0 0 -9em;
   opacity: 0;
-  animation: logo 9s ease-out 9s;
 }
-/* line 119, ../scss/style.scss */
-.starwars.animation.on .titles {
+/* line 136, ../scss/style.scss */
+.starwars.on .titles {
   top: auto;
   bottom: 0;
   height: 50em;
-  font-size: 350%;
   text-align: justify;
   width: 14.65em;
   margin: 0 0 0 -7.325em;
@@ -120,20 +140,12 @@ article.starwars > header,
   -webkit-transform: perspective(300px) rotateX(25deg);
   transform: perspective(300px) rotateX(25deg);
 }
-/* line 130, ../scss/style.scss */
-.starwars.animation.on .titles > div.story {
+/* line 146, ../scss/style.scss */
+.starwars.on .titles > div.story {
   animation: titles 60s linear 13s;
-  position: absolute;
-  top: 100%;
 }
-/* line 134, ../scss/style.scss */
-.starwars.animation.on .titles > div.story > p {
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-/* line 139, ../scss/style.scss */
-.starwars.animation.on .animation.hidden {
+/* line 150, ../scss/style.scss */
+.starwars.on .animation.hidden {
   display: none;
 }
 
@@ -184,7 +196,7 @@ article.starwars > header,
     opacity: 0;
   }
 }
-/* line 188, ../scss/style.scss */
+/* line 199, ../scss/style.scss */
 a:focus,
 button:focus {
   outline: red solid 2px;

@@ -100,27 +100,43 @@ article.starwars,
   }
 }
 
-.starwars.animation.on {
+.starwars.on {
+  &.animation {
+    .intro {
+      animation: intro 6s ease-out 1s;
+    }
+    .logo {
+      animation: logo 9s ease-out 9s;
+    }
+    .titles {
+      font-size: 350%;
+      > div.story {
+        position: absolute;
+        top: 100%;
+        > p {
+          @include backface-visibility(hidden);
+        }
+      }
+    }
+  }
+
   .intro {
     $intro-width: 15em;
     width: $intro-width;
     margin: 0 0 0 (-$intro-width / 2);
     opacity: 0;
-    animation: intro 6s ease-out 1s;
   }
   .logo {
     $logo-width: 18em;
     width: $logo-width;
     margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
     opacity: 0;
-    animation: logo 9s ease-out 9s;
   }
 
   .titles {
     top: auto;
     bottom: 0;
     height: 50em;
-    font-size: 350%;
     text-align: justify;
     $titles-width: 14.65em;
     width: $titles-width;
@@ -129,11 +145,6 @@ article.starwars,
     @include transform(perspective(300px) rotateX(25deg));
     > div.story {
       animation: titles 60s linear 13s;
-      position: absolute;
-      top: 100%;
-      > p {
-        @include backface-visibility(hidden);
-      }
     }
   }
   .animation.hidden {

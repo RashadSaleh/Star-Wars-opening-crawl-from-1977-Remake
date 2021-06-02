@@ -44,9 +44,12 @@ class StarWars {
 
     // Start the animation
     obj.start = obj.el.find(".start");
+    obj.start.show();
 
     // The animation wrapper
-    obj.animation = obj.el.find(".main_animation").clone();
+    const old_animation = obj.el.find(".main_animation");
+    obj.animation = old_animation; //.clone();
+    // old_animation.remove();
 
     if (!obj.animation) {
       alert("foo");
@@ -99,7 +102,7 @@ class StarWars {
   _on_play_click() {
     const obj = this;
     obj.stopped = false;
-    $("body > h1").toggleClass("hide");
+    $("body > h1").addClass("hide");
     obj.start.hide();
     obj.audio.play();
     $(".starwars").addClass(["animation", "on"]);
@@ -124,6 +127,7 @@ class StarWars {
     const cloned = obj.animation.clone(true);
     obj.animation.remove();
     obj.animation = cloned;
+    $("article.starwars").removeClass("animation");
   }
   _stop_audio() {
     const obj = this;

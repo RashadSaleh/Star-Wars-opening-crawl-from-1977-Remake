@@ -46,51 +46,51 @@ article.starwars > header,
 }
 
 /* line 48, ../scss/style.scss */
+.starwars section {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  z-index: 1;
+}
+/* line 54, ../scss/style.scss */
 .starwars .start {
   font-size: 200%;
   margin: -4em 0 0 -7em;
   text-align: center;
   cursor: pointer;
 }
-/* line 49, ../scss/style.scss */
+/* line 55, ../scss/style.scss */
 .starwars .start button {
   font-size: 300%;
 }
-/* line 53, ../scss/style.scss */
+/* line 59, ../scss/style.scss */
 .starwars .start a {
   font-size: 150%;
 }
-/* line 55, ../scss/style.scss */
+/* line 61, ../scss/style.scss */
 .starwars .start a .arrow {
   color: #a00;
 }
-/* line 73, ../scss/style.scss */
+/* line 79, ../scss/style.scss */
 .starwars .intro {
   font-size: 200%;
   font-weight: 400;
   color: #4bd5ee;
 }
-/* line 80, ../scss/style.scss */
+/* line 86, ../scss/style.scss */
 .starwars .logo svg {
   width: inherit;
 }
-/* line 85, ../scss/style.scss */
+/* line 91, ../scss/style.scss */
 .starwars .titles {
   overflow: hidden;
 }
-/* line 89, ../scss/style.scss */
+/* line 95, ../scss/style.scss */
 .starwars .titles > div.story > p {
   margin: 1.35em 0 1.85em 0;
   line-height: 1.35em;
 }
 
-/* line 98, ../scss/style.scss */
-.starwars.animation.on section {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  z-index: 1;
-}
 /* line 104, ../scss/style.scss */
 .starwars.animation.on .intro {
   width: 15em;

@@ -45,6 +45,12 @@ article.starwars,
 }
 
 .starwars {
+  section {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    z-index: 1;
+  }
   .start {
     button {
       font-size: 300%;
@@ -95,12 +101,6 @@ article.starwars,
 }
 
 .starwars.animation.on {
-  section {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    z-index: 1;
-  }
   .intro {
     $intro-width: 15em;
     width: $intro-width;

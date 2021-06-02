@@ -91,19 +91,19 @@ body.animation_body .starwars .titles > div.story > p {
   line-height: 1.35em;
 }
 
-/* line 108, ../scss/style.scss */
-.starwars.on.animation .intro {
+/* line 109, ../scss/style.scss */
+body.animation_body .starwars.on.animation .intro {
   width: 15em;
   margin: 0 0 0 -7.5em;
   opacity: 0;
   animation: intro 6s ease-out 1s;
 }
-/* line 115, ../scss/style.scss */
-.starwars.on.animation .logo {
+/* line 116, ../scss/style.scss */
+body.animation_body .starwars.on.animation .logo {
   animation: logo 9s ease-out 9s;
 }
-/* line 118, ../scss/style.scss */
-.starwars.on.animation .titles {
+/* line 119, ../scss/style.scss */
+body.animation_body .starwars.on.animation .titles {
   font-size: 350%;
   transform-origin: 50% 100%;
   -moz-transform: perspective(300px) rotateX(25deg);
@@ -111,39 +111,39 @@ body.animation_body .starwars .titles > div.story > p {
   -webkit-transform: perspective(300px) rotateX(25deg);
   transform: perspective(300px) rotateX(25deg);
 }
-/* line 122, ../scss/style.scss */
-.starwars.on.animation .titles > div.story {
+/* line 123, ../scss/style.scss */
+body.animation_body .starwars.on.animation .titles > div.story {
   position: absolute;
   top: 100%;
   animation: titles 60s linear 13s;
 }
-/* line 126, ../scss/style.scss */
-.starwars.on.animation .titles > div.story > p {
+/* line 127, ../scss/style.scss */
+body.animation_body .starwars.on.animation .titles > div.story > p {
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 133, ../scss/style.scss */
-.starwars.on section {
+/* line 134, ../scss/style.scss */
+body.animation_body .starwars.on section {
   position: absolute;
   top: 45%;
   left: 50%;
   z-index: 1;
 }
-/* line 139, ../scss/style.scss */
-.starwars.on .intro {
+/* line 140, ../scss/style.scss */
+body.animation_body .starwars.on .intro {
   width: 15em;
   margin: 0 0 0 -7.5em;
   opacity: 0;
 }
-/* line 145, ../scss/style.scss */
-.starwars.on .logo {
+/* line 146, ../scss/style.scss */
+body.animation_body .starwars.on .logo {
   width: 18em;
   margin: -9em 0 0 -9em;
   opacity: 0;
 }
-/* line 152, ../scss/style.scss */
-.starwars.on .titles {
+/* line 153, ../scss/style.scss */
+body.animation_body .starwars.on .titles {
   top: auto;
   bottom: 0;
   height: 50em;
@@ -151,8 +151,8 @@ body.animation_body .starwars .titles > div.story > p {
   width: 14.65em;
   margin: 0 0 0 -7.325em;
 }
-/* line 163, ../scss/style.scss */
-.starwars.on .animation.hidden {
+/* line 164, ../scss/style.scss */
+body.animation_body .starwars.on .animation.hidden {
   display: none;
 }
 
@@ -203,7 +203,7 @@ body.animation_body .starwars .titles > div.story > p {
     opacity: 0;
   }
 }
-/* line 212, ../scss/style.scss */
+/* line 214, ../scss/style.scss */
 a:focus,
 button:focus {
   outline: red solid 2px;

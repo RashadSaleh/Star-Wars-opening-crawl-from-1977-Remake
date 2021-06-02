@@ -76,8 +76,9 @@ class StarWars {
         const obj = this;
         $("article.starwars").addClass("on").removeClass("animation");
         obj.animation.removeClass(["hidden"]);
-        $("body").toggleClass(["accessible_body", "animation_body"]);
-        if ($("body").hasClass("accessible_body")) {
+        const elem = obj.elem;
+        elem.toggleClass(["accessible_body", "animation_body"]);
+        if (elem.hasClass("accessible_body")) {
             obj._replace_animation_element();
         }
         else {
@@ -103,7 +104,8 @@ class StarWars {
         const obj = this;
         obj.stopped = false;
         $("body > h1").addClass("hide");
-        if ($("body").hasClass("accessible_body")) {
+        const elem = obj.elem;
+        if (elem.hasClass("accessible_body")) {
             alert("accessible_body");
         }
         obj.start.hide();

@@ -44,7 +44,7 @@ article.starwars,
   }
 }
 
-body.animation_body .starwars {
+.starwars.animation_body {
   section {
     position: absolute;
     top: 45%;
@@ -103,63 +103,61 @@ body.animation_body .starwars {
   }
 }
 
-body.animation_body {
-  .starwars.on {
-    &.animation {
-      .intro {
-        $intro-width: 15em;
-        width: $intro-width;
-        margin: 0 0 0 (-$intro-width / 2);
-        opacity: 0;
-        animation: intro 6s ease-out 1s;
-      }
-      .logo {
-        animation: logo 9s ease-out 9s;
-      }
-      .titles {
-        font-size: 350%;
-        transform-origin: 50% 100%;
-        @include transform(perspective(300px) rotateX(25deg));
-        > div.story {
-          position: absolute;
-          top: 100%;
-          animation: titles 60s linear 13s;
-          > p {
-            @include backface-visibility(hidden);
-          }
-        }
-      }
-    }
-
-    section {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      z-index: 1;
-    }
+.starwars.on.animation_body {
+  &.animation {
     .intro {
       $intro-width: 15em;
       width: $intro-width;
       margin: 0 0 0 (-$intro-width / 2);
       opacity: 0;
+      animation: intro 6s ease-out 1s;
     }
     .logo {
-      $logo-width: 18em;
-      width: $logo-width;
-      margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
-      opacity: 0;
+      animation: logo 9s ease-out 9s;
     }
-
     .titles {
-      top: auto;
-      bottom: 0;
-      height: 50em;
-      text-align: justify;
-      $titles-width: 14.65em;
-      width: $titles-width;
-      margin: 0 0 0 (-$titles-width / 2);
+      font-size: 350%;
+      transform-origin: 50% 100%;
+      @include transform(perspective(300px) rotateX(25deg));
       > div.story {
+        position: absolute;
+        top: 100%;
+        animation: titles 60s linear 13s;
+        > p {
+          @include backface-visibility(hidden);
+        }
       }
+    }
+  }
+
+  section {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    z-index: 1;
+  }
+  .intro {
+    $intro-width: 15em;
+    width: $intro-width;
+    margin: 0 0 0 (-$intro-width / 2);
+    opacity: 0;
+  }
+  .logo {
+    $logo-width: 18em;
+    width: $logo-width;
+    margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
+    opacity: 0;
+  }
+
+  .titles {
+    top: auto;
+    bottom: 0;
+    height: 50em;
+    text-align: justify;
+    $titles-width: 14.65em;
+    width: $titles-width;
+    margin: 0 0 0 (-$titles-width / 2);
+    > div.story {
     }
   }
 }

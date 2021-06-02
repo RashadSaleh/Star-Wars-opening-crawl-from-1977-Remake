@@ -12,14 +12,12 @@ body {
   color: #ff6;
   background: #000;
   margin: 0;
-  &.on {
-    overflow: hidden;
-    font: 700 1em "News Cycle", sans-serif;
-    letter-spacing: 0.15em;
-  }
+  overflow: hidden;
+  font: 700 1em "News Cycle", sans-serif;
+  letter-spacing: 0.15em;
 }
 
-body > h1 {
+#Teaser_wrapper > h1 {
   font-size: 400%;
   text-align: center;
 }
@@ -216,3 +214,8 @@ article.starwars,
   }
 }
 @include links_visible_focus;
+
+#Teaser_wrapper {
+  height: 400px;
+  width: 600px;
+}

@@ -171,5 +171,5 @@ class StarWars {
 
 new StarWars({
   el: ".starwars",
-  title_selector: "body > h1",
+  title_selector: "h1",
 });

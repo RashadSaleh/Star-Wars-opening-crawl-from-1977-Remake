@@ -135,6 +135,7 @@ class StarWars {
         obj.animation.remove();
         obj.animation = cloned;
         $("article.starwars").removeClass("animation").removeClass("on");
+        return;
     }
     _stop_audio() {
         const obj = this;

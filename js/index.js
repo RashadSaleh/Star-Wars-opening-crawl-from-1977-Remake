@@ -96,6 +96,7 @@ class StarWars {
         if (found) {
             found.remove();
         }
+        return;
     }
     _replace_animation_element() {
         const obj = this;

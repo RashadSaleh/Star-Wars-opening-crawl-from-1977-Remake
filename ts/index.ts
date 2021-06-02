@@ -86,7 +86,7 @@ class StarWars {
     });
   }
 
-  _on_accessible_click() {
+  _on_accessible_click(): void {
     const obj = this;
     $("article.starwars").addClass("on").removeClass("animation");
     $([obj.animation, $(".main_animation")]).removeClass([
@@ -103,21 +103,22 @@ class StarWars {
     }
     return;
   }
-  _remove_animation_element() {
+  _remove_animation_element(): void {
     const obj = this;
     const found = obj.elem.find(".main_animation");
     if (found) {
       found.remove();
     }
+    return;
   }
-  _replace_animation_element() {
+  _replace_animation_element(): void {
     const obj = this;
     obj._remove_animation_element();
     obj.elem.append(obj.animation);
     return;
   }
 
-  _on_play_click() {
+  _on_play_click(): void {
     const obj = this;
     obj.stopped = false;
     $("body > h1").addClass("hide");
@@ -141,7 +142,7 @@ class StarWars {
   /*
    * Resets the animation and shows the start screen.
    */
-  reset() {
+  reset(): void {
     const obj = this;
     $("body > h1").removeClass("hide");
     obj.start.show();

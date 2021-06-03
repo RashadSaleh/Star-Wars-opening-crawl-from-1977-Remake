@@ -103,12 +103,13 @@ class StarWars {
     }
     _on_play_click() {
         const obj = this;
-        obj.stopped = false;
-        $(obj.title_selector).addClass("hide");
         const elem = obj.elem;
         if (elem.hasClass("accessible_body")) {
-            alert("accessible_body");
+            alert("Please disable accessibility mode first (e.g: by reloading the page)");
+            return;
         }
+        obj.stopped = false;
+        $(obj.title_selector).addClass("hide");
         obj.start.hide();
         obj.audio.play();
         elem.addClass(["animation", "on"]);

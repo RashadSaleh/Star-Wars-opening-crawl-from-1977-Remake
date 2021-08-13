@@ -29,6 +29,9 @@
  * timpietrusky.com
  *
  */
+const VOLUME_STEP = 5;
+const VOLUME_RANGE = 100;
+const VOLUME_factor = 1.0 / VOLUME_RANGE;
 class StarWars {
     /*
      * Constructor
@@ -58,8 +61,17 @@ class StarWars {
         obj.stopped = false;
         obj.timeout_id = null;
         const _handle_keyboard_presses = function (my_event) {
-            if (my_event.key == "Escape") {
+            const key = my_event.key;
+            const downkeycode = 40;
+            const upkeycode = 38;
+            if (key == "Escape") {
                 obj._stop_audio();
+            }
+            else if (my_event.which == upkeycode) {
+                obj._volume_up();
+            }
+            else if (my_event.which == downkeycode) {
+                obj._volume_down();
             }
             return;
         };
@@ -72,6 +84,8 @@ class StarWars {
         $(obj.audio).bind("ended", () => {
             return obj._stop_audio();
         });
+        obj._volume = 80;
+        obj._change_volume(0);
     }
     _on_accessible_click() {
         const obj = this;
@@ -85,6 +99,28 @@ class StarWars {
         else {
             obj._remove_animation_element();
         }
+        return;
+    }
+    _change_volume(offset) {
+        const obj = this;
+        obj._volume += offset;
+        if (obj._volume < 0) {
+            obj._volume = 0;
+        }
+        if (obj._volume > VOLUME_RANGE) {
+            obj._volume = VOLUME_RANGE;
+        }
+        obj.audio.volume = obj._volume / VOLUME_RANGE;
+        return;
+    }
+    _volume_down() {
+        const obj = this;
+        obj._change_volume(-VOLUME_STEP);
+        return;
+    }
+    _volume_up() {
+        const obj = this;
+        obj._change_volume(VOLUME_STEP);
         return;
     }
     _remove_animation_element() {
@@ -103,13 +139,12 @@ class StarWars {
     }
     _on_play_click() {
         const obj = this;
-        const elem = obj.elem;
-        if (elem.hasClass("accessible_body")) {
-            alert("Please disable accessibility mode first (e.g: by reloading the page)");
-            return;
-        }
         obj.stopped = false;
         $(obj.title_selector).addClass("hide");
+        const elem = obj.elem;
+        if (elem.hasClass("accessible_body")) {
+            alert("accessible_body");
+        }
         obj.start.hide();
         obj.audio.play();
         elem.addClass(["animation", "on"]);

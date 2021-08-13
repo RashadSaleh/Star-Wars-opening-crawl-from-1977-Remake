@@ -29,6 +29,10 @@
  * timpietrusky.com
  *
  */
+const VOLUME_STEP = 5;
+const VOLUME_RANGE = 100;
+const VOLUME_factor = 1.0 / VOLUME_RANGE;
+
 class StarWars {
   public animation: JQuery;
   public audio: any;
@@ -37,6 +41,7 @@ class StarWars {
   public stopped: boolean;
   public timeout_id: number;
   public title_selector: string;
+  public _volume: number;
   /*
    * Constructor
    */
@@ -71,8 +76,15 @@ class StarWars {
     obj.stopped = false;
     obj.timeout_id = null;
     const _handle_keyboard_presses = function (my_event) {
-      if (my_event.key == "Escape") {
+      const key = my_event.key;
+      const downkeycode = 40;
+      const upkeycode = 38;
+      if (key == "Escape") {
         obj._stop_audio();
+      } else if (my_event.which == upkeycode) {
+        obj._volume_up();
+      } else if (my_event.which == downkeycode) {
+        obj._volume_down();
       }
       return;
     };
@@ -86,6 +98,8 @@ class StarWars {
     $(obj.audio).bind("ended", () => {
       return obj._stop_audio();
     });
+    obj._volume = 80;
+    obj._change_volume(0);
   }
 
   _on_accessible_click(): void {
@@ -99,6 +113,28 @@ class StarWars {
     } else {
       obj._remove_animation_element();
     }
+    return;
+  }
+  _change_volume(offset: number): void {
+    const obj = this;
+    obj._volume += offset;
+    if (obj._volume < 0) {
+        obj._volume = 0;
+    }
+    if (obj._volume > VOLUME_RANGE) {
+        obj._volume = VOLUME_RANGE;
+    }
+    obj.audio.volume = obj._volume / VOLUME_RANGE;
+    return;
+  }
+  _volume_down(): void {
+    const obj = this;
+    obj._change_volume(-VOLUME_STEP);
+    return;
+  }
+  _volume_up(): void {
+    const obj = this;
+    obj._change_volume(VOLUME_STEP);
     return;
   }
   _remove_animation_element(): void {

@@ -32,3 +32,7 @@ $(TYPESCRIPT_DEST_FILES): $(OUT_PREF)/%.js: ts/%.ts $(TYPESCRIPT_COMMON_DEPS) li
 all: ts
 
 ts: $(TYPESCRIPT_DEST_FILES)
+
+prettier:
+	prettier --parser scss --arrow-parens always --tab-width 2 --trailing-comma all --write scss/*.scss
+	prettier --parser typescript --arrow-parens always --tab-width 2 --trailing-comma all --write ts/*.ts

@@ -214,3 +214,12 @@ a:focus,
 button:focus {
   outline: red solid 2px;
 }
+
+/* line 225, ../scss/style.scss */
+#volume_display.display_off {
+  display: none;
+}
+/* line 228, ../scss/style.scss */
+#volume_display.display_on {
+  color: white;
+}

@@ -85,7 +85,7 @@ class StarWars {
             return obj._stop_audio();
         });
         obj._volume = 80;
-        obj._change_volume(0);
+        obj._change_volume(0, false);
     }
     _on_accessible_click() {
         const obj = this;
@@ -101,7 +101,7 @@ class StarWars {
         }
         return;
     }
-    _change_volume(offset) {
+    _change_volume(offset, display) {
         const obj = this;
         obj._volume += offset;
         if (obj._volume < 0) {
@@ -111,16 +111,27 @@ class StarWars {
             obj._volume = VOLUME_RANGE;
         }
         obj.audio.volume = obj._volume / VOLUME_RANGE;
+        if (display) {
+            const widget = $("#volume_display");
+            widget.html("Volume: " + obj._volume + "%");
+            widget.addClass("display_on");
+            widget.removeClass("display_off");
+            obj._volume_timeout_id = setTimeout(() => {
+                widget.removeClass("display_on");
+                widget.addClass("display_off");
+                return;
+            }, 1000);
+        }
         return;
     }
     _volume_down() {
         const obj = this;
-        obj._change_volume(-VOLUME_STEP);
+        obj._change_volume(-VOLUME_STEP, true);
         return;
     }
     _volume_up() {
         const obj = this;
-        obj._change_volume(VOLUME_STEP);
+        obj._change_volume(VOLUME_STEP, true);
         return;
     }
     _remove_animation_element() {

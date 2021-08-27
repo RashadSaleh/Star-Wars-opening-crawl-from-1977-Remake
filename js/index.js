@@ -60,6 +60,7 @@ class StarWars {
         });
         obj.stopped = false;
         obj.timeout_id = null;
+        obj._volume_timeout_id = null;
         const _handle_keyboard_presses = function (my_event) {
             const key = my_event.key;
             const downkeycode = 40;
@@ -116,9 +117,16 @@ class StarWars {
             widget.html("Volume: " + obj._volume + "%");
             widget.addClass("display_on");
             widget.removeClass("display_off");
+            if (obj._volume_timeout_id) {
+                clearTimeout(obj._volume_timeout_id);
+                obj._volume_timeout_id = null;
+            }
             obj._volume_timeout_id = setTimeout(() => {
                 widget.removeClass("display_on");
                 widget.addClass("display_off");
+                if (obj._volume_timeout_id) {
+                    obj._volume_timeout_id = null;
+                }
                 return;
             }, 1000);
         }

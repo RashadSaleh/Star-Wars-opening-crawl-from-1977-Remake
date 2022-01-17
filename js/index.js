@@ -32,6 +32,7 @@
 const VOLUME_STEP = 5;
 const VOLUME_RANGE = 100;
 const VOLUME_factor = 1.0 / VOLUME_RANGE;
+const VOLUME_key = "starwars_volume";
 class StarWars {
     /*
      * Constructor
@@ -85,7 +86,13 @@ class StarWars {
         $(obj.audio).bind("ended", () => {
             return obj._stop_audio();
         });
-        obj._volume = 80;
+        const v = window.localStorage.getItem(VOLUME_key);
+        if (v) {
+            obj._volume = parseInt(v, 10);
+        }
+        else {
+            obj._volume = 80;
+        }
         obj._change_volume(0, false);
     }
     _on_accessible_click() {
@@ -112,6 +119,7 @@ class StarWars {
             obj._volume = VOLUME_RANGE;
         }
         obj.audio.volume = obj._volume / VOLUME_RANGE;
+        window.localStorage.setItem(VOLUME_key, "" + obj._volume);
         if (display) {
             const widget = $("#volume_display");
             widget.html("Volume: " + obj._volume + "%");

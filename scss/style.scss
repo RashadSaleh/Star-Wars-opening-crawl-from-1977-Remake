@@ -2,6 +2,11 @@
 
 @import "compass/css3";
 
+@mixin logo($logo-width) {
+  width: $logo-width;
+  margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
+}
+
 html,
 body {
   width: 100%;
@@ -48,15 +53,12 @@ article.starwars,
 
 .starwars.accessible_body {
   padding: 1em;
+  .logo {
+    @include logo(8em);
+  }
 }
 
-.starwars.animation_body {
-  section {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    z-index: 1;
-  }
+.starwars {
   .start {
     button {
       font-size: 300%;
@@ -83,6 +85,15 @@ article.starwars,
         color: rgb(75, 213, 238);
       }
     }
+  }
+}
+
+.starwars.animation_body {
+  section {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    z-index: 1;
   }
 
   .intro {
@@ -149,9 +160,7 @@ article.starwars,
     opacity: 0;
   }
   .logo {
-    $logo-width: 18em;
-    width: $logo-width;
-    margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
+    @include logo(18em);
     opacity: 0;
   }
 

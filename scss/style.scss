@@ -88,7 +88,7 @@ article.starwars,
   }
 }
 
-.starwars.animation_body {
+.starwars {
   section {
     position: absolute;
     top: 45%;
@@ -101,7 +101,8 @@ article.starwars,
     font-weight: 400;
     color: rgb(75, 213, 238);
   }
-
+}
+.starwars.animation_body {
   .logo {
     svg {
       width: inherit;

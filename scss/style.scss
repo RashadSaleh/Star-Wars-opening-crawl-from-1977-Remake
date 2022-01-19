@@ -13,7 +13,9 @@ body {
   background: #000;
   margin: 0;
   &.on {
-    overflow: hidden;
+    article.animation_body {
+      overflow: hidden;
+    }
     font: 700 1em "News Cycle", sans-serif;
     letter-spacing: 0.15em;
   }

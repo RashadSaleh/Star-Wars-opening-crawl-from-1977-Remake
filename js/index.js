@@ -103,6 +103,9 @@ class StarWars {
         elem.toggleClass(["accessible_body", "animation_body"]);
         if (elem.hasClass("accessible_body")) {
             obj._replace_animation_element();
+            const logo = $(".logo");
+            logo.detach();
+            logo.prependTo($(".intro"));
         }
         else {
             obj._remove_animation_element();

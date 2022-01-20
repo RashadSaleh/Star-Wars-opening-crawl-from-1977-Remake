@@ -54,7 +54,14 @@ article.starwars,
 .starwars.accessible_body {
   padding: 1em;
   .logo {
+    position: absolute;
     @include logo(8em);
+  }
+  .intro {
+    position: absolute;
+  }
+  .start {
+    position: absolute;
   }
 }
 

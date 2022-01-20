@@ -54,70 +54,79 @@ article.starwars > header,
 }
 /* line 56, ../scss/style.scss */
 .starwars.accessible_body .logo {
+  position: absolute;
   width: 8em;
   margin: -4em 0 0 -4em;
 }
+/* line 60, ../scss/style.scss */
+.starwars.accessible_body .intro {
+  position: absolute;
+}
+/* line 63, ../scss/style.scss */
+.starwars.accessible_body .start {
+  position: absolute;
+}
 
-/* line 62, ../scss/style.scss */
+/* line 69, ../scss/style.scss */
 .starwars .start {
   font-size: 200%;
   margin: -4em 0 0 -7em;
   text-align: center;
   cursor: pointer;
 }
-/* line 63, ../scss/style.scss */
+/* line 70, ../scss/style.scss */
 .starwars .start button {
   font-size: 300%;
 }
-/* line 67, ../scss/style.scss */
+/* line 74, ../scss/style.scss */
 .starwars .start a {
   font-size: 150%;
 }
-/* line 69, ../scss/style.scss */
+/* line 76, ../scss/style.scss */
 .starwars .start a .arrow {
   color: #a00;
 }
 
-/* line 92, ../scss/style.scss */
+/* line 99, ../scss/style.scss */
 .starwars section {
   position: absolute;
   top: 45%;
   left: 50%;
   z-index: 1;
 }
-/* line 99, ../scss/style.scss */
+/* line 106, ../scss/style.scss */
 .starwars .intro {
   font-size: 200%;
   font-weight: 400;
   color: #4bd5ee;
 }
 
-/* line 107, ../scss/style.scss */
+/* line 114, ../scss/style.scss */
 .starwars.animation_body .logo svg {
   width: inherit;
 }
-/* line 112, ../scss/style.scss */
+/* line 119, ../scss/style.scss */
 .starwars.animation_body .titles {
   overflow: hidden;
 }
-/* line 116, ../scss/style.scss */
+/* line 123, ../scss/style.scss */
 .starwars.animation_body .titles > div.story > p {
   margin: 1.35em 0 1.85em 0;
   line-height: 1.35em;
 }
 
-/* line 126, ../scss/style.scss */
+/* line 133, ../scss/style.scss */
 .starwars.on.animation_body.animation .intro {
   width: 15em;
   margin: 0 0 0 -7.5em;
   opacity: 0;
   animation: intro 6s ease-out 1s;
 }
-/* line 133, ../scss/style.scss */
+/* line 140, ../scss/style.scss */
 .starwars.on.animation_body.animation .logo {
   animation: logo 9s ease-out 9s;
 }
-/* line 136, ../scss/style.scss */
+/* line 143, ../scss/style.scss */
 .starwars.on.animation_body.animation .titles {
   font-size: 350%;
   transform-origin: 50% 100%;
@@ -126,38 +135,38 @@ article.starwars > header,
   -webkit-transform: perspective(300px) rotateX(25deg);
   transform: perspective(300px) rotateX(25deg);
 }
-/* line 140, ../scss/style.scss */
+/* line 147, ../scss/style.scss */
 .starwars.on.animation_body.animation .titles > div.story {
   position: absolute;
   top: 100%;
   animation: titles 60s linear 13s;
 }
-/* line 144, ../scss/style.scss */
+/* line 151, ../scss/style.scss */
 .starwars.on.animation_body.animation .titles > div.story > p {
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 151, ../scss/style.scss */
+/* line 158, ../scss/style.scss */
 .starwars.on.animation_body section {
   position: absolute;
   top: 45%;
   left: 50%;
   z-index: 1;
 }
-/* line 157, ../scss/style.scss */
+/* line 164, ../scss/style.scss */
 .starwars.on.animation_body .intro {
   width: 15em;
   margin: 0 0 0 -7.5em;
   opacity: 0;
 }
-/* line 163, ../scss/style.scss */
+/* line 170, ../scss/style.scss */
 .starwars.on.animation_body .logo {
   width: 18em;
   margin: -9em 0 0 -9em;
   opacity: 0;
 }
-/* line 168, ../scss/style.scss */
+/* line 175, ../scss/style.scss */
 .starwars.on.animation_body .titles {
   top: auto;
   bottom: 0;
@@ -167,7 +176,7 @@ article.starwars > header,
   margin: 0 0 0 -7.325em;
 }
 
-/* line 181, ../scss/style.scss */
+/* line 188, ../scss/style.scss */
 .main_animation.hidden {
   display: none;
 }
@@ -219,17 +228,17 @@ article.starwars > header,
     opacity: 0;
   }
 }
-/* line 229, ../scss/style.scss */
+/* line 236, ../scss/style.scss */
 a:focus,
 button:focus {
   outline: red solid 2px;
 }
 
-/* line 237, ../scss/style.scss */
+/* line 244, ../scss/style.scss */
 #volume_display.display_off {
   display: none;
 }
-/* line 240, ../scss/style.scss */
+/* line 247, ../scss/style.scss */
 #volume_display.display_on {
   color: white;
 }

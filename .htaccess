@@ -1,1 +1,2 @@
-AddType text/html .html .xhtml
+# Breaks the logo:
+# AddType text/html .html .xhtml

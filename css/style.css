@@ -230,3 +230,7 @@ html.no_accessible #volume_display.display_off {
 html.no_accessible #volume_display.display_on {
   color: white;
 }
+/* line 252, ../scss/style.scss */
+html.no_accessible .play {
+  padding: 0.1em 0.2em;
+}

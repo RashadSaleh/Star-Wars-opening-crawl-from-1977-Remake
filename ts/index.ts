@@ -111,21 +111,7 @@ class StarWars {
   }
 
   _on_accessible_click(): void {
-    const obj = this;
-    const elem = obj.elem;
     $("html").toggleClass(["no_accessible", "yes_accessible"]);
-    return;
-    elem.addClass("on").removeClass("animation");
-    obj.animation.removeClass(["hidden"]);
-    elem.toggleClass(["accessible_body", "animation_body"]);
-    if (elem.hasClass("accessible_body")) {
-      obj._replace_animation_element();
-      const logo = $(".logo");
-      logo.detach();
-      logo.prependTo($(".intro"));
-    } else {
-      obj._remove_animation_element();
-    }
     return;
   }
   _change_volume(offset: number, display: boolean): void {

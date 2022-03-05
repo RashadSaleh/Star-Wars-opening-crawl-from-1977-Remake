@@ -66,6 +66,9 @@ class StarWars {
             const key = my_event.key;
             const downkeycode = 40;
             const upkeycode = 38;
+            if (obj._yes_accessible()) {
+                return;
+            }
             if (key == "Escape") {
                 obj._stop_audio();
             }
@@ -94,6 +97,9 @@ class StarWars {
             obj._volume = 80;
         }
         obj._change_volume(0, false);
+    }
+    _yes_accessible() {
+        return $("html").hasClass("yes_accessible");
     }
     _on_accessible_click() {
         $("html").toggleClass(["no_accessible", "yes_accessible"]);

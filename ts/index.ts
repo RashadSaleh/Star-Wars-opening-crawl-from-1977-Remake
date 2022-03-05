@@ -82,6 +82,9 @@ class StarWars {
       const key = my_event.key;
       const downkeycode = 40;
       const upkeycode = 38;
+      if (obj._yes_accessible()) {
+        return;
+      }
       if (key == "Escape") {
         obj._stop_audio();
       } else if (my_event.which == upkeycode) {
@@ -110,6 +113,9 @@ class StarWars {
     obj._change_volume(0, false);
   }
 
+  _yes_accessible(): boolean {
+    return $("html").hasClass("yes_accessible");
+  }
   _on_accessible_click(): void {
     $("html").toggleClass(["no_accessible", "yes_accessible"]);
     return;

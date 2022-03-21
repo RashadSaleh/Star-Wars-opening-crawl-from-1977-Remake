@@ -79,6 +79,10 @@ class StarWars {
     obj.timeout_id = null;
     obj._volume_timeout_id = null;
     const _handle_keyboard_presses = function (my_event) {
+      const prevent = function () {
+        my_event.preventDefault();
+        return;
+      };
       const key = my_event.key;
       const downkeycode = 40;
       const upkeycode = 38;
@@ -87,10 +91,13 @@ class StarWars {
       }
       if (key == "Escape") {
         obj._stop_audio();
+        prevent();
       } else if (my_event.which == upkeycode) {
         obj._volume_up();
+        prevent();
       } else if (my_event.which == downkeycode) {
         obj._volume_down();
+        prevent();
       }
       return;
     };

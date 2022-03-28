@@ -3,253 +3,253 @@
 @import "compass/css3";
 
 @mixin logo($logo-width) {
-    width: $logo-width;
-    margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
+  width: $logo-width;
+  margin: (-$logo-width / 2) 0 0 (-$logo-width / 2);
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 html.no_accessible {
-    body {
-        color: #ff6;
-        background: #000;
-        margin: 0;
-        &.on {
-            article.animation_body {
-                overflow: hidden;
-            }
-            font: 700 1em "News Cycle", sans-serif;
-            letter-spacing: 0.15em;
-        }
+  body {
+    color: #ff6;
+    background: #000;
+    margin: 0;
+    &.on {
+      article.animation_body {
+        overflow: hidden;
+      }
+      font: 700 1em "News Cycle", sans-serif;
+      letter-spacing: 0.15em;
     }
+  }
 
-    body > h1 {
-        font-size: 400%;
-        text-align: center;
+  body > h1 {
+    font-size: 400%;
+    text-align: center;
+  }
+
+  h1.hide {
+    visibility: hidden;
+  }
+
+  .start {
+    a {
+      color: green;
+      &:visited {
+        color: #888;
+      }
     }
+  }
 
-    h1.hide {
-        visibility: hidden;
+  .starwars.accessible_body {
+    padding: 1em;
+    .logo {
+      position: absolute;
+      @include logo(8em);
     }
-
+    .intro {
+      position: absolute;
+    }
     .start {
-        a {
-            color: green;
-            &:visited {
-                color: #888;
-            }
+      position: absolute;
+    }
+  }
+
+  .starwars {
+    .start {
+      button {
+        font-size: 300%;
+      }
+
+      a {
+        font-size: 150%;
+        .arrow {
+          color: #a00;
         }
+      }
+      font-size: 200%;
+      $start-width: 14em;
+      // width: $start-width;
+      margin: -4em 0 0 (-$start-width / 2);
+      text-align: center;
+      cursor: pointer;
+
+      @if false {
+        $start-width: 14em;
+        // width: $start-width;
+        margin: -4em 0 0 (-$start-width / 2);
+        span {
+          color: rgb(75, 213, 238);
+        }
+      }
+    }
+  }
+
+  .starwars {
+    section {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      z-index: 1;
     }
 
-    .starwars.accessible_body {
-        padding: 1em;
-        .logo {
-            position: absolute;
-            @include logo(8em);
-        }
-        .intro {
-            position: absolute;
-        }
-        .start {
-            position: absolute;
-        }
+    .intro {
+      font-size: 200%;
+      font-weight: 400;
+      color: rgb(75, 213, 238);
+    }
+  }
+  .starwars.animation_body {
+    .logo {
+      svg {
+        width: inherit;
+      }
     }
 
-    .starwars {
-        .start {
-            button {
-                font-size: 300%;
-            }
+    .titles {
+      overflow: hidden;
 
-            a {
-                font-size: 150%;
-                .arrow {
-                    color: #a00;
-                }
-            }
-            font-size: 200%;
-            $start-width: 14em;
-            // width: $start-width;
-            margin: -4em 0 0 (-$start-width / 2);
-            text-align: center;
-            cursor: pointer;
-
-            @if false {
-                $start-width: 14em;
-                // width: $start-width;
-                margin: -4em 0 0 (-$start-width / 2);
-                span {
-                    color: rgb(75, 213, 238);
-                }
-            }
+      > div.story {
+        > p {
+          margin: 1.35em 0 1.85em 0;
+          line-height: 1.35em;
         }
+      }
+    }
+  }
+
+  .starwars.on.animation_body {
+    &.animation {
+      .intro {
+        $intro-width: 15em;
+        width: $intro-width;
+        margin: 0 0 0 (-$intro-width / 2);
+        opacity: 0;
+        animation: intro 6s ease-out 1s;
+      }
+      .logo {
+        animation: logo 9s ease-out 9s;
+      }
+      .titles {
+        font-size: 350%;
+        transform-origin: 50% 100%;
+        @include transform(perspective(300px) rotateX(25deg));
+        > div.story {
+          position: absolute;
+          top: 100%;
+          animation: titles 60s linear 13s;
+          > p {
+            @include backface-visibility(hidden);
+          }
+        }
+      }
     }
 
-    .starwars {
-        section {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            z-index: 1;
-        }
-
-        .intro {
-            font-size: 200%;
-            font-weight: 400;
-            color: rgb(75, 213, 238);
-        }
+    section {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      z-index: 1;
     }
-    .starwars.animation_body {
-        .logo {
-            svg {
-                width: inherit;
-            }
-        }
-
-        .titles {
-            overflow: hidden;
-
-            > div.story {
-                > p {
-                    margin: 1.35em 0 1.85em 0;
-                    line-height: 1.35em;
-                }
-            }
-        }
+    .intro {
+      $intro-width: 15em;
+      width: $intro-width;
+      margin: 0 0 0 (-$intro-width / 2);
+      opacity: 0;
+    }
+    .logo {
+      @include logo(18em);
+      opacity: 0;
     }
 
-    .starwars.on.animation_body {
-        &.animation {
-            .intro {
-                $intro-width: 15em;
-                width: $intro-width;
-                margin: 0 0 0 (-$intro-width / 2);
-                opacity: 0;
-                animation: intro 6s ease-out 1s;
-            }
-            .logo {
-                animation: logo 9s ease-out 9s;
-            }
-            .titles {
-                font-size: 350%;
-                transform-origin: 50% 100%;
-                @include transform(perspective(300px) rotateX(25deg));
-                > div.story {
-                    position: absolute;
-                    top: 100%;
-                    animation: titles 60s linear 13s;
-                    > p {
-                        @include backface-visibility(hidden);
-                    }
-                }
-            }
-        }
+    .titles {
+      top: auto;
+      bottom: 0;
+      height: 50em;
+      text-align: justify;
+      $titles-width: 14.65em;
+      width: $titles-width;
+      margin: 0 0 0 (-$titles-width / 2);
+      > div.story {
+      }
+    }
+  }
 
-        section {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            z-index: 1;
-        }
-        .intro {
-            $intro-width: 15em;
-            width: $intro-width;
-            margin: 0 0 0 (-$intro-width / 2);
-            opacity: 0;
-        }
-        .logo {
-            @include logo(18em);
-            opacity: 0;
-        }
+  .main_animation.hidden {
+    display: none;
+  }
 
-        .titles {
-            top: auto;
-            bottom: 0;
-            height: 50em;
-            text-align: justify;
-            $titles-width: 14.65em;
-            width: $titles-width;
-            margin: 0 0 0 (-$titles-width / 2);
-            > div.story {
-            }
-        }
+  @keyframes intro {
+    0% {
+      opacity: 0;
     }
+    20% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
-    .main_animation.hidden {
-        display: none;
+  @keyframes logo {
+    0% {
+      @include transform(scale(2.75));
+      opacity: 1;
     }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      @include transform(scale(0.1));
+      opacity: 0;
+    }
+  }
 
-    @keyframes intro {
-        0% {
-            opacity: 0;
-        }
-        20% {
-            opacity: 1;
-        }
-        90% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
+  @keyframes titles {
+    0% {
+      top: 100%;
+      opacity: 1;
     }
+    90% {
+      top: 20%;
+      opacity: 1;
+    }
+    100% {
+      top: 10%;
+      opacity: 0;
+    }
+  }
+  @mixin links_visible_focus {
+    a:focus,
+    button:focus {
+      outline: red solid 2px;
+    }
+  }
+  @include links_visible_focus;
 
-    @keyframes logo {
-        0% {
-            @include transform(scale(2.75));
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            @include transform(scale(0.1));
-            opacity: 0;
-        }
+  #volume_display {
+    &.display_off {
+      display: none;
     }
-
-    @keyframes titles {
-        0% {
-            top: 100%;
-            opacity: 1;
-        }
-        90% {
-            top: 20%;
-            opacity: 1;
-        }
-        100% {
-            top: 10%;
-            opacity: 0;
-        }
+    &.display_on {
+      color: white;
     }
-    @mixin links_visible_focus {
-        a:focus,
-        button:focus {
-            outline: red solid 2px;
-        }
-    }
-    @include links_visible_focus;
-
-    #volume_display {
-        &.display_off {
-            display: none;
-        }
-        &.display_on {
-            color: white;
-        }
-    }
-    .play {
-        padding: 0.1em 0.2em;
-    }
+  }
+  .play {
+    padding: 0.1em 0.2em;
+  }
 }
 
 article.starwars,
 .starwars section {
-    > header {
-        display: none;
-    }
+  > header {
+    display: none;
+  }
 }

@@ -239,3 +239,8 @@ article.starwars > header,
 .starwars section > header {
   display: none;
 }
+
+/* line 263, ../scss/style.scss */
+.start.hide {
+  display: none;
+}

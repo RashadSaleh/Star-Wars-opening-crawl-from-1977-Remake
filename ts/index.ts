@@ -59,7 +59,7 @@ class StarWars {
 
     // Start the animation
     obj.start = obj.elem.find(".start");
-    obj.start.show();
+    // obj.start.show();
 
     // The animation wrapper
     const old_animation = obj.elem.find(".main_animation");
@@ -191,7 +191,7 @@ class StarWars {
     if (elem.hasClass("accessible_body")) {
       alert("accessible_body");
     }
-    obj.start.hide();
+    obj.start.addClass("hide");
     obj.audio.play();
     elem.addClass(["animation", "on"]);
     // obj.animation.addClass("animation");
@@ -211,7 +211,8 @@ class StarWars {
   reset(): void {
     const obj = this;
     $(obj.title_selector).removeClass("hide");
-    obj.start.show();
+    // obj.start.show();
+    obj.start.removeClass("hide");
     const cloned = obj.animation.clone(true);
     obj.animation.remove();
     obj.animation = cloned;

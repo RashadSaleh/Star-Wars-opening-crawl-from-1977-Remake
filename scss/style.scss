@@ -258,3 +258,9 @@ article.starwars,
     display: none;
   }
 }
+
+.start {
+  &.hide {
+    display: none;
+  }
+}

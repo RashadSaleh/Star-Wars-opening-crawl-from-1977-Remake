@@ -192,6 +192,11 @@ html.no_accessible {
       }
     }
   }
+  
+  .main_animation {
+    position: fixed;
+    bottom: 0;
+  }
 
   .main_animation.hidden {
     display: none;

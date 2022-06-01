@@ -156,7 +156,7 @@ html.no_accessible {
       .titles {
         font-size: 350%;
         transform-origin: 50% 100%;
-        @include transform(perspective(300px) rotateX(25deg));
+        @include transform(perspective(100vh) rotateX(25deg));
         div.story {
           position: absolute;
           top: 100%;
@@ -185,7 +185,7 @@ html.no_accessible {
       bottom: 0;
       height: 50em;
       text-align: justify;
-      $titles-width: 14.65em;
+      $titles-width: 90vw;
       width: $titles-width;
       margin: 0 0 0 (-$titles-width / 2);
       div.story {
